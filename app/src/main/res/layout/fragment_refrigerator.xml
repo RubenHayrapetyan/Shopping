@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.ruben.shopping.menu.recipe.page1.RecipeFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <TextView
+            android:id="@+id/refrigerator_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/refrigerator"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/top_guideline"
+            tools:layout_editor_absoluteX="25dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/missing_ingredients_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/size_20dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_guideline"
+            app:layout_constraintTop_toBottomOf="@id/refrigerator_txt"
+            tools:itemCount="4"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/item_refrigerator_missing_ingredients"
+            tools:orientation="vertical"
+            tools:scrollbars="vertical"
+            tools:spanCount="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/missing_ingredients_recycler"
+            app:layout_constraintStart_toStartOf="@+id/missing_ingredients_recycler"
+            app:layout_constraintTop_toTopOf="@+id/bottom_guideline">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save_changes_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_save_changes_btn"
+                android:paddingStart="@dimen/size_20dp"
+                android:paddingEnd="@dimen/size_20dp"
+                android:layout_marginEnd="@dimen/size_10dp"
+                android:text="Сохранить изменения"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/clear_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_save_changes_btn"
+                android:paddingStart="@dimen/size_20dp"
+                android:paddingEnd="@dimen/size_20dp"
+                android:layout_marginStart="@dimen/size_10dp"
+                android:text="Очистить"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+
+
+        <ProgressBar
+            android:id="@+id/loading_pb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:indeterminateTint="@color/purple"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

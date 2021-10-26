@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ruben.shopping.activities.MenuActivity">
+
+    <fragment
+        android:id="@+id/menu_nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:layout="@layout/fragment_recipe"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/blue_line"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/menu_nav_graph" />
+
+    <View
+        android:id="@+id/blue_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_menu" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu"
+        app:itemTextColor="@color/bottom_menu_items_color"
+        app:itemIconTint="@color/bottom_menu_items_color"
+         />
+<!--    app:tabTextAppearance="@style/MineCustomTabText"-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

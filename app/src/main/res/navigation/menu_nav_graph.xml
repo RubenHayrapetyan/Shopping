@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menu_nav_graph"
+    app:startDestination="@id/recipeFragment">
+
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="com.ruben.shopping.menu.recipe.page1.RecipeFragment"
+        android:label="fragment_recipe"
+        tools:layout="@layout/fragment_recipe" >
+        <action
+            android:id="@+id/action_recipeFragment_to_recipeFragment2"
+            app:destination="@id/recipeFragment2"
+            app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_recipeFragment_to_shopFragment"
+            app:destination="@id/shopFragment"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popExitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/refrigeratorFragment"
+        android:name="com.ruben.shopping.menu.refrigerator.RefrigeratorFragment"
+        android:label="fragment_refrigerator"
+        tools:layout="@layout/fragment_refrigerator" >
+        <action
+            android:id="@+id/action_refrigeratorFragment_self"
+            app:destination="@id/refrigeratorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.ruben.shopping.menu.shop.ShopFragment"
+        android:label="fragment_shop"
+        tools:layout="@layout/fragment_shop" >
+        <argument
+            android:name="recipeId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeFragment2"
+        android:name="com.ruben.shopping.menu.recipe.page1.RecipeFragment2"
+        android:label="fragment_recipe2"
+        tools:layout="@layout/fragment_recipe2" >
+        <action
+            android:id="@+id/action_recipeFragment2_to_recipeFragment"
+            app:destination="@id/recipeFragment"
+            app:exitAnim="@anim/fragment_close_exit" />
+        <argument
+            android:name="recipieModel"
+            app:argType="com.ruben.shopping.models.recipe.Recipe" />
+        <action
+            android:id="@+id/action_recipeFragment2_to_shopFragment"
+            app:destination="@id/shopFragment" />
+    </fragment>
+</navigation>

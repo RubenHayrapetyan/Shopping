@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/size_25dp"
+        android:paddingEnd="@dimen/size_25dp"
+        tools:context="com.ruben.shopping.menu.recipe.page1.RecipeFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/message_group2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="textview2,unchecked_icon" />
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10dp"
+            android:gravity="center"
+            android:text="Нужно сходить в магазин"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/unchecked_icon"
+            android:layout_width="70dp"
+            android:layout_height="0dp"
+            android:src="@drawable/unchecked"
+            app:layout_constraintBottom_toTopOf="@+id/top_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview2" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/message_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="textview,checked_icon" />
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10dp"
+            android:gravity="center"
+            android:text="Все ингредиенты в холодильнике"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/checked_icon"
+            android:layout_width="70dp"
+            android:layout_height="0dp"
+            android:src="@drawable/checked_icon"
+            app:layout_constraintBottom_toTopOf="@+id/top_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview" />
+
+        <TextView
+            android:id="@+id/recipe_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/recipe"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/top_guideline" />
+
+        <TextView
+            android:id="@+id/recipe_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintTop_toBottomOf="@id/recipe_txt"
+            tools:text="@string/test_text" />
+
+        <TextView
+            android:id="@+id/ingredients_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20dp"
+            android:text="@string/ingredients"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recipe_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/ingredients_list_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/size_8dp"
+            android:layout_marginBottom="@dimen/size_10dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_guideline"
+            app:layout_constraintTop_toBottomOf="@id/ingredients_title"
+            tools:itemCount="1"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/item_ingredients"
+            tools:orientation="vertical"
+            tools:scrollbars="vertical"
+            tools:spanCount="1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/to_use_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_to_use_btn"
+            android:paddingStart="@dimen/size_50dp"
+            android:paddingEnd="@dimen/size_50dp"
+            android:text="@string/to_use"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bottom_guideline" />
+
+        <ProgressBar
+            android:id="@+id/loading_pb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/purple"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
